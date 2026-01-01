@@ -52,3 +52,38 @@ License
 - MIT
 
 Need help or want enhancements? Open an issue or message me — happy to help!
+
+Architecture & Diagram
+
+Below is a simple dynamic architecture diagram showing how the front-end is structured and how it relates to a backend and data store. This uses Mermaid (supported on GitHub) and a small file-tree for quick orientation.
+
+Mermaid diagram
+
+```mermaid
+flowchart LR
+	Browser[Browser / Client]
+	Browser -->|loads| ReactApp[React App (`src/`)]
+	ReactApp --> Components[UI Components (`src/components/`)]
+	Components --> Members[Members.js]
+	ReactApp --> State[Local State / Context]
+	ReactApp -->|fetch| API[Backend API]
+	API --> DB[(Database / Storage)]
+	Members -->|reads/writes| API
+
+	classDef infra fill:#f9f,stroke:#333,stroke-width:1px;
+	class API,DB infra;
+```
+
+File tree (important files)
+
+```text
+.
+├─ public/
+│  └─ index.html
+├─ src/
+│  ├─ components/
+│  │  └─ Members.js
+│  ├─ App.js
+│  └─ index.js
+└─ README.md
+```
