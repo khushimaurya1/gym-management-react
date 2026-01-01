@@ -55,22 +55,6 @@ npm run build
 
 This diagram shows how the front-end interacts with components, local state, and a backend API. GitHub supports Mermaid diagrams in READMEs; if yours doesn't render, enable the feature in your platform or use a generated image.
 
-Mermaid flowchart
-
-```mermaid
-flowchart LR
-  Browser[Browser / Client]
-  Browser -->|loads| ReactApp[React App (`src/`)]
-  ReactApp --> Components[UI Components (`src/components/`)]
-  Components --> Members[Members.js]
-  ReactApp --> State[Local State / Context]
-  ReactApp -->|fetch| API[Backend API]
-  API --> DB[(Database / Storage)]
-  Members -->|reads/writes| API
-
-  classDef infra fill:#f9f,stroke:#333,stroke-width:1px;
-  class API,DB infra;
-```
 
 Quick file tree
 
